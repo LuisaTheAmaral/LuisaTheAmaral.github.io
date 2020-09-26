@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@600&family=Montserrat&display=swap" rel="stylesheet"> </header>
-    <link href="fontawesome-free-5.14.0-web/css/all.css" rel="stylesheet">
     <!--load all styles -->
 </head>
 
@@ -19,13 +18,69 @@
             <img src="img/terminal_icon.png" alt="" style="float:left;width:25px;height:22px;"> ~:bash - Konsole
             <img src="img/window_icons_white.png" alt="" style="float:right;width:74px;height:25px;">
         </div>
-        luisa@linux-is-fun:~$
+        
+        <div id="terminal-prompt">
+            <div id="terminal-user">
+                luisa@linux-is-fun:~$  
+            </div>
+            <body onload="typeWriter()">
+                &nbsp;  	
+                &nbsp;
+                <a id="demo" />
+        </div>
+        
 
-        <body onload="typeWriter()">
 
-            <a id="demo" />
+        <!-- HERE STARTS THE COMMANDS -->
+        <div id="terminal-prompt">
+            <div id="terminal-user">
+                luisa@linux-is-fun:~$
+            </div>
+            <span id="terminal__prompt--cursor"></span>
+        </div>
     </div>
 
+
+    
+    <div id="user-main-screen">
+        <div id="user-bar">
+            <img src="img/user.png" alt="" style="float:left;width:23px;height:22px;"> Profile
+            <img src="img/window_icons_white.png" alt="" style="float:right;width:74px;height:25px;">
+        </div>
+        <img id="user-image" src="img/mecartoon.png" alt="" style="width:200px;height:200px;">
+        <div id="text-box">
+            My name is Luísa Amaral and I am a computer <br> engineering student in the University of Aveiro
+            <h1>Date of Birth</h1> Jan 9, 2001
+            <h1>Address</h1> Aveiro, Portugal
+            <h1>E-mail</h1> luisa.amaral9@gmail.com
+        </div>
+    </div>
+
+
+    <div id="education-main-screen">
+        <div id="education-bar">
+            <img src="img/diplom.png" alt="" style="float:left;width:23px;height:22px;"> Education
+            <img src="img/window_icons_white.png" alt="" style="float:right;width:74px;height:25px;">
+        </div>
+        
+        <div id="text-box">
+            <a href="https://www.ua.pt" target="_blank"><img id="user-image" src="img/ua.png" style="float:right;width:56px;height:56px;" alt="" style="width:200px;height:200px;">
+            </a>
+            <h1 style="text-align: left;">2018-Present</h1> 
+            <h2 style="text-align: left;">Master's degree in Computer Engineering</h2>
+            <b style="color: black;">UNIVERSIDADE DE AVEIRO</b><br><br>
+            Currently a second year student enrolled in the Computer Engineering course in the University of Aveiro.
+            <br><br><br>
+            <a href="http://www.aems.edu.pt/" target="_blank"><img id="user-image" src="img/logo_aems_200px_bold.png" style="float:right;width:180px;height:56px;" alt="">
+            </a>
+            <h1 style="text-align: left;">2018</h1> 
+            <h2 style="text-align: left;">Graduated High School</h2>
+            <b style="color: black;">ESCOLA SECUNDÁRIA DR. MÁRIO SACRAMENTO</b><br><br>
+            Finished High School with a 19,2 average.
+        </div>
+    </div>
+
+    
 
 
     <!-- TERMINAL SCRIPT -->
@@ -33,6 +88,8 @@
     <script>
         //Make the DIV element draggagle:
         dragElement(document.getElementById("terminal-main-screen"));
+        dragElement(document.getElementById("user-main-screen"));
+        dragElement(document.getElementById("education-main-screen"));
 
         function dragElement(elmnt) {
             var pos1 = 0,
@@ -84,7 +141,7 @@
 
         var i = 0;
         var txt = 'welcome!';
-        var speed = 50;
+        var speed = 60;
 
         function typeWriter() {
             if (i < txt.length) {
