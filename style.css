@@ -68,7 +68,7 @@
         border-radius: 5px;
         width: 500px;
         height: 520px;
-        background: rgba(255, 255, 255, 0.842);
+        background: rgb(255, 255, 255);
         color: black;
         text-align: left;
         /* padding-left: 6px; */
@@ -106,7 +106,7 @@
         border-radius: 5px;
         width: 550px;
         height: 520px;
-        background: rgba(255, 255, 255, 0.842);
+        background: rgb(255, 255, 255);
         color: black;
         text-align: left;
         /* padding-left: 6px; */
