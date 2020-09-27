@@ -1,18 +1,38 @@
+<!DOCTYPE html>
+
 <html>
 
 <head>
-    <title>Hello</title>
+    <title>Hello!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@600&family=Montserrat&display=swap" rel="stylesheet"> </header>
-    <!--load all styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
 
+    <div class="container2">
+        <div class="row">
+            <div class="col-sm-1">
+                <img src="img/recycle.png" alt="" style="float:left;width:60px;height:60px;"> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <img onclick="displayUser()" src="img/user-alt-512.webp" alt="" style="float:left;width:65px;height:65px;cursor:pointer;">  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <br>
+                <img onclick="displayEducation()" src="img/diplom_black.png" alt="" style="float:left;width:60px;height:60px;cursor:pointer;">
+            </div>
+        </div>
+    </div>
+
+    
     <div id="terminal-main-screen" contenteditable="true">
         <div id="terminal-bar">
             <img src="img/terminal_icon.png" alt="" style="float:left;width:25px;height:22px;"> ~:bash - Konsole
@@ -21,8 +41,7 @@
         
         <div id="terminal-prompt">
             <div id="terminal-user">
-                luisa@linux-is-fun:~$  
-            
+                luisa@linux-is-fun:~$
             <body onload="typeWriter()">
                 <!-- &nbsp;  	
                 &nbsp; -->
@@ -30,17 +49,16 @@
             </div>
         </div>
         
-
-
         <!-- HERE STARTS THE COMMANDS -->
         <div id="terminal-prompt">
             <div id="terminal-user">
                 luisa@linux-is-fun:~$
             </div>
             <span id="terminal__prompt--cursor"></span>
-        </div>
+            <!-- <input type="text" id="input"> -->
+        
+        </div>  
     </div>
-
 
     
     <div id="user-main-screen">
@@ -70,7 +88,7 @@
             <h1 style="text-align: left;">2018-Present</h1> 
             <h2 style="text-align: left;">Master's degree in Computer Engineering</h2>
             <b style="color: black;">UNIVERSIDADE DE AVEIRO</b><br><br>
-            Currently a second year student enrolled in the Computer Engineering course in the University of Aveiro.
+            Currently a third year student enrolled in the Computer Engineering course in the University of Aveiro.
             <br><br><br>
             <a href="http://www.aems.edu.pt/" target="_blank"><img id="user-image" src="img/logo_aems_200px_bold.png" style="float:right;width:180px;height:56px;" alt="">
             </a>
@@ -80,8 +98,6 @@
             Finished High School with a 19,2 average.
         </div>
     </div>
-
-    
 
 
     <!-- TERMINAL SCRIPT -->
@@ -137,7 +153,6 @@
         }
 
 
-
         // TYPING EFFECT
 
         var i = 0;
@@ -151,6 +166,28 @@
                 setTimeout(typeWriter, speed);
             }
         }
+
+        function displayUser() {
+            var x = document.getElementById("user-main-screen"); 
+            x.style.display = "block";
+        }
+
+        function displayEducation() {
+            var x = document.getElementById("education-main-screen"); 
+            x.style.display = "block";
+        }
+
+        // function display() {
+        //     var x = document.createElement("input");
+        //     x.setAttribute("type", "text");
+        //     document.body.appendChild(x);
+        //     document.getElementById("terminal__prompt--cursor").appendChild(x);
+            
+            
+        //     var y = document.getElementById("cmd").style.backgroundColor = "red"; 
+        //     document.getElementById("user-main-screen").style.display = "absolute";
+        // }
+
     </script>
 
     </body>
