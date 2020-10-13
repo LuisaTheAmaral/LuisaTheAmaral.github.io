@@ -1,7 +1,9 @@
-# LuisaTheAmaral.github.io
+# Hello!
 
 Personal website that is current under development
 
 Enter at your own risk
 
-![open-sesame] (img/open-sesame.jpg)
+<p align="center">
+  <img src="img/open-sesame.jpg" alt="Open Sesame"/>
+</p>
