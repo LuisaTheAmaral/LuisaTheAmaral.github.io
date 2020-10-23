@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -30,14 +31,26 @@
                 <img onclick="displayEducation()" src="img/diplom_black.png" alt="" style="float:left;width:60px;height:60px;cursor:pointer;">
             </div>
         </div>
+        <!-- <div class="row">
+            <div class="col-sm-1">
+                <br>
+                <img onclick="displayFolder()" src="img/folder-icon.png" alt="" style="float:left;width:70px;height:80px;cursor:pointer;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <br>
+                <img onclick="displayForm()" src="img/icon-contact-me.png" alt="" style="float:left;width:65px;height:65px;cursor:pointer;">
+            </div>
+        </div> -->
     </div>
 
     
     <div id="terminal-main-screen" contenteditable="true">
         <div id="terminal-bar">
             <img src="img/terminal_icon.png" alt="" style="float:left;width:25px;height:22px;"> ~:bash - Konsole
-            <img src="img/window_icons_white.png" alt="" style="float:right;width:74px;height:25px;">
-        </div>
+            <img onclick="hideTerminal()" src="img/window_icons_white_close.png" alt="" style="float:right;width:25px;height:25px;">
+            <img src="img/window_icons_white.png" alt="" style="float:right;width:55px;height:25px;">        </div>
         
         <div id="terminal-prompt">
             <div id="terminal-user">
@@ -64,7 +77,8 @@
     <div id="user-main-screen">
         <div id="user-bar">
             <img src="img/user.png" alt="" style="float:left;width:23px;height:22px;"> Profile
-            <img src="img/window_icons_white.png" alt="" style="float:right;width:74px;height:25px;">
+            <img onclick="hideUser()" src="img/window_icons_white_close.png" alt="" style="cursor:default;float:right;width:25px;height:25px;">
+            <img src="img/window_icons_white.png" alt="" style="float:right;width:55px;height:25px;">
         </div>
         <img id="user-image" src="img/luisa_git.gif" alt="" style="width:200px;height:200px;">
         <div id="text-box">
@@ -77,9 +91,10 @@
 
 
     <div id="education-main-screen">
-        <div id="education-bar">
+        <div id="education-bar">         
             <img src="img/diplom.png" alt="" style="float:left;width:23px;height:22px;"> Education
-            <img src="img/window_icons_white.png" alt="" style="float:right;width:74px;height:25px;">
+            <img onclick="hideEducation()" src="img/window_icons_white_close.png" alt="" style="cursor:default;float:right;width:25px;height:25px;">
+            <img src="img/window_icons_white.png" alt="" style="float:right;width:55px;height:25px;">
         </div>
         
         <div id="text-box">
@@ -99,6 +114,31 @@
         </div>
     </div>
 
+    <div id="form-main-screen">
+        <div id="form-bar">
+            <img src="img/icon-contact-me.png" alt="" style="float:left;width:23px;height:22px;"> Contact me!
+            <img onclick="hideForm()" src="img/window_icons_white_close.png" alt="" style="cursor:default;float:right;width:27px;height:25px;">
+            <img src="img/window_icons_white.png" alt="" style="float:right;width:60px;height:25px;">
+        </div>
+            
+        <div class="form-container">
+            
+            <form method="post" name="myemailform" action="form-to-email.php">
+
+            <label for="fname">Your name</label>
+            <input type="text" name="name" placeholder="Your name..."/>
+            
+            <label for="lname">Your email</label>
+            <input type="text" name="email" placeholder="Your email..."/>
+            
+            <label for="message">Message</label>
+            <textarea name="message" placeholder="Message..." style="height:150px"></textarea>
+            
+            <input type="submit" value="Send it!">
+            
+            </form>
+        </div>
+    </div> 
 
     <!-- TERMINAL SCRIPT -->
 
@@ -107,6 +147,7 @@
         dragElement(document.getElementById("terminal-main-screen"));
         dragElement(document.getElementById("user-main-screen"));
         dragElement(document.getElementById("education-main-screen"));
+        dragElement(document.getElementById("form-container"));
 
         function dragElement(elmnt) {
             var pos1 = 0,
@@ -175,6 +216,31 @@
         function displayEducation() {
             var x = document.getElementById("education-main-screen"); 
             x.style.display = "block";
+        }
+
+        function displayForm() {
+            var x = document.getElementById("form-main-screen"); 
+            x.style.display = "block";
+        }
+
+        function hideUser() {
+            var x = document.getElementById("user-main-screen"); 
+            x.style.display = "none";
+        }
+
+        function hideEducation() {
+            var x = document.getElementById("education-main-screen"); 
+            x.style.display = "none";
+        }
+
+        function hideTerminal() {
+            var x = document.getElementById("terminal-main-screen"); 
+            x.style.display = "none";
+        }
+
+        function hideForm() {
+            var x = document.getElementById("form-main-screen"); 
+            x.style.display = "none";
         }
 
         // function display() {
