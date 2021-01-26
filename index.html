@@ -55,11 +55,11 @@
         <div id="terminal-prompt">
             <div id="terminal-user">
                 luisa@linux-is-fun:~$
-            <body onload="typeWriter()">
-                <!-- &nbsp;  	
-                &nbsp; -->
-                <a id="demo" />
             </div>
+            <body onload="typeWriter()" >
+                &nbsp;  	
+                &nbsp;
+                <a id="msg">
         </div>
         
         <!-- HERE STARTS THE COMMANDS -->
@@ -143,6 +143,21 @@
     <!-- TERMINAL SCRIPT -->
 
     <script>
+
+        
+        // TYPING EFFECT      
+        var i = 0;
+        var txt = 'welcome!';
+        var speed = 80;
+
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("msg").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
         //Make the DIV element draggagle:
         dragElement(document.getElementById("terminal-main-screen"));
         dragElement(document.getElementById("user-main-screen"));
@@ -190,21 +205,6 @@
                 /* stop moving when mouse button is released:*/
                 document.onmouseup = null;
                 document.onmousemove = null;
-            }
-        }
-
-
-        // TYPING EFFECT
-
-        var i = 0;
-        var txt = 'welcome!';
-        var speed = 60;
-
-        function typeWriter() {
-            if (i < txt.length) {
-                document.getElementById("demo").innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
             }
         }
 
