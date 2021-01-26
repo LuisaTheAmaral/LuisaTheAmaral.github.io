@@ -212,8 +212,9 @@ figcaption {
     background-color: rgb(59, 58, 58);
     position: fixed;
     bottom: 0;
-    left: 50%;
+    left: 98%;
     transform: translate(-50%, -50%);
+    border-radius: 7px;
     /* width: 100%; */
 }
 
