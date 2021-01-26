@@ -7,13 +7,16 @@
     <title>Hello!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
+    <!-- <script src="script.js"></script> -->
+    <script type="text/javascript" src="js/scripts.js"></script> 
+    <script type="text/javascript" src="js/dragItems.js"></script>    
+    <link rel="stylesheet" type="text/css" href="font/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
-
     <div class="container2">
         <div class="row">
             <div class="col-sm-1">
@@ -31,22 +34,9 @@
                 <img onclick="displayEducation()" src="img/diplom_black.png" alt="" style="float:left;width:60px;height:60px;cursor:pointer;">
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-sm-1">
-                <br>
-                <img onclick="displayFolder()" src="img/folder-icon.png" alt="" style="float:left;width:70px;height:80px;cursor:pointer;">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-1">
-                <br>
-                <img onclick="displayForm()" src="img/icon-contact-me.png" alt="" style="float:left;width:65px;height:65px;cursor:pointer;">
-            </div>
-        </div> -->
     </div>
 
-    
-    <div id="terminal-main-screen" contenteditable="true">
+    <div id="terminal-main-screen">
         <div id="terminal-bar">
             <img src="img/terminal_icon.png" alt="" style="float:left;width:25px;height:22px;"> ~:bash - Konsole
             <img onclick="hideTerminal()" src="img/window_icons_white_close.png" alt="" style="float:right;width:25px;height:25px;">
@@ -72,7 +62,6 @@
         
         </div>  
     </div>
-
     
     <div id="user-main-screen">
         <div id="user-bar">
@@ -110,152 +99,25 @@
             <h1 style="text-align: left;">2018</h1> 
             <h2 style="text-align: left;">Graduated High School</h2>
             <b style="color: black;">ESCOLA SECUNDÁRIA DR. MÁRIO SACRAMENTO</b><br><br>
-            Finished High School with a 19,2 average.
+            Finished High School with a 19,2 average out of 20.
         </div>
     </div>
 
-    <!-- <div id="form-main-screen">
-        <div id="form-bar">
-            <img src="img/icon-contact-me.png" alt="" style="float:left;width:23px;height:22px;"> Contact me!
-            <img onclick="hideForm()" src="img/window_icons_white_close.png" alt="" style="cursor:default;float:right;width:27px;height:25px;">
-            <img src="img/window_icons_white.png" alt="" style="float:right;width:60px;height:25px;">
-        </div>
-            
-        <div class="form-container">
-            
-            <form method="post" name="myemailform" action="form-to-email.php">
-
-            <label for="fname">Your name</label>
-            <input type="text" name="name" placeholder="Your name..."/>
-            
-            <label for="lname">Your email</label>
-            <input type="text" name="email" placeholder="Your email..."/>
-            
-            <label for="message">Message</label>
-            <textarea name="message" placeholder="Message..." style="height:150px"></textarea>
-            
-            <input type="submit" value="Send it!">
-            
-            </form>
-        </div>
-    </div>  -->
-
-    <!-- TERMINAL SCRIPT -->
+    <div class="bottombar">
+        <a href="https://github.com/LuisaTheAmaral" class="active">
+            <i class="fab fa-github"></i>
+        </a>
+        <!-- <a href="#news">News</a>
+        <a href="#contact">Contact</a> -->
+    </div>
 
     <script>
-
-        
-        // TYPING EFFECT      
-        var i = 0;
-        var txt = 'welcome!';
-        var speed = 80;
-
-        function typeWriter() {
-            if (i < txt.length) {
-                document.getElementById("msg").innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            }
-        }
-
-        //Make the DIV element draggagle:
         dragElement(document.getElementById("terminal-main-screen"));
         dragElement(document.getElementById("user-main-screen"));
         dragElement(document.getElementById("education-main-screen"));
         dragElement(document.getElementById("form-container"));
-
-        function dragElement(elmnt) {
-            var pos1 = 0,
-                pos2 = 0,
-                pos3 = 0,
-                pos4 = 0;
-            if (document.getElementById(elmnt.id + "header")) {
-                /* if present, the header is where you move the DIV from:*/
-                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-            } else {
-                /* otherwise, move the DIV from anywhere inside the DIV:*/
-                elmnt.onmousedown = dragMouseDown;
-            }
-
-            function dragMouseDown(e) {
-                e = e || window.event;
-                e.preventDefault();
-                // get the mouse cursor position at startup:
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                document.onmouseup = closeDragElement;
-                // call a function whenever the cursor moves:
-                document.onmousemove = elementDrag;
-            }
-
-            function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
-                // calculate the new cursor position:
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                // set the element's new position:
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            }
-
-            function closeDragElement() {
-                /* stop moving when mouse button is released:*/
-                document.onmouseup = null;
-                document.onmousemove = null;
-            }
-        }
-
-        function displayUser() {
-            var x = document.getElementById("user-main-screen"); 
-            x.style.display = "block";
-        }
-
-        function displayEducation() {
-            var x = document.getElementById("education-main-screen"); 
-            x.style.display = "block";
-        }
-
-        function displayForm() {
-            var x = document.getElementById("form-main-screen"); 
-            x.style.display = "block";
-        }
-
-        function hideUser() {
-            var x = document.getElementById("user-main-screen"); 
-            x.style.display = "none";
-        }
-
-        function hideEducation() {
-            var x = document.getElementById("education-main-screen"); 
-            x.style.display = "none";
-        }
-
-        function hideTerminal() {
-            var x = document.getElementById("terminal-main-screen"); 
-            x.style.display = "none";
-        }
-
-        function hideForm() {
-            var x = document.getElementById("form-main-screen"); 
-            x.style.display = "none";
-        }
-
-        // function display() {
-        //     var x = document.createElement("input");
-        //     x.setAttribute("type", "text");
-        //     document.body.appendChild(x);
-        //     document.getElementById("terminal__prompt--cursor").appendChild(x);
-            
-            
-        //     var y = document.getElementById("cmd").style.backgroundColor = "red"; 
-        //     document.getElementById("user-main-screen").style.display = "absolute";
-        // }
-
     </script>
-
+    
     </body>
 
 </html>
