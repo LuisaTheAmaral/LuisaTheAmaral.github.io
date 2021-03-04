@@ -5,13 +5,15 @@
 
 <head>
     <title>Hello!</title>
-    <link rel="icon" href="img/user.png" type="image/icon type">
+    <link rel="icon" href="img/icons/waving.png" type="image/icon type">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script src="script.js"></script> -->
     <script type="text/javascript" src="js/scripts.js"></script> 
-    <script type="text/javascript" src="js/dragItems.js"></script>    
-    <link rel="stylesheet" type="text/css" href="font/fontawesome/css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="js/dragItems.js"></script>   
+        
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <!-- <link rel="stylesheet" type="text/css" href="font/fontawesome/css/all.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     
@@ -20,28 +22,66 @@
 <body>
     <div class="container2">
         <div class="row">
-            <div class="col-sm-1">
-                <img src="img/recycle.png" alt="" style="float:left;width:60px;height:60px;"> 
+            <div class="column">
+                <div class="icon__wrap">
+                    <img src="img/icons/trash.png" alt="" style="width:60px;height:60px;cursor:pointer;"> 
+                    <p class="img__description" style="text-align: center;vertical-align: middle;padding-left: 18px;">Trash</p>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1">
-                <img onclick="displayUser()" src="img/user-alt-512.webp" alt="" style="float:left;width:65px;height:65px;cursor:pointer;">  
+            <div class="column">
+                <div class="icon__wrap">
+                    <img onclick="displayUser()" src="img/icons/waving.png" alt="" style="width:60px;height:60px;cursor:pointer;">  
+                    <p class="img__description" style="text-align: center;vertical-align: middle;padding-left: 7px;">About me</p>
+                </div>
             </div>
+            <!-- <div class="column">
+                <div class="icon__wrap">
+                    <img src="img/icons/projects.png" alt="" style="width:60px;height:60px;cursor:pointer;"> 
+                    <p class="img__description" style="text-align: center;vertical-align: middle;padding-left: 10px;">Projects</p>
+                </div>
+            </div> -->
         </div>
         <div class="row">
-            <div class="col-sm-1">
-                <br>
-                <img onclick="displayEducation()" src="img/diplom_black.png" alt="" style="float:left;width:60px;height:60px;cursor:pointer;">
+            <div class="column">
+                <div class="icon__wrap">
+                    <img onclick="displayEducation()" src="img/icons/school.png" alt="" style="width:60px;height:60px;cursor:pointer;">
+                    <p class="img__description" style="text-align: center;vertical-align: middle;padding-left: 7px;">Education</p>
+                </div>
             </div>
+            <!-- <div class="column">
+                <div class="icon__wrap" >
+                    <img src="img/icons/game.png" alt="" style="width:60px;height:60px;cursor:pointer;"> 
+                    <p class="img__description" style="text-align: center;vertical-align: middle;padding-left: 12px;">Play me!</p>
+                </div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="icon__wrap" style="height:125px;">
+                    <img onclick="getRandomColor()" src="img/icons/paint.png" alt="" style="width:60px;height:60px;cursor:pointer;">
+                    <p class="img__description" style="text-align: center;vertical-align: middle;">Change the background!</p>
+                </div>
+            </div>
+            <!-- <div class="column">
+                <div class="icon__wrap">
+                    <img src="img/icons/mailbox.png" alt="" style="width:60px;height:60px;cursor:pointer;">
+                    <p class="img__description" style="text-align: center;vertical-align: middle;">Contact me!</p>
+                </div>
+            </div> -->
         </div>
     </div>
+
 
     <div id="terminal-main-screen">
         <div id="terminal-bar">
             <img src="img/terminal_icon.png" alt="" style="float:left;width:25px;height:22px;"> ~:bash - Konsole
-            <img onclick="hideTerminal()" src="img/window_icons_white_close.png" alt="" style="float:right;width:25px;height:25px;">
-            <img src="img/window_icons_white.png" alt="" style="float:right;width:55px;height:25px;">        </div>
+        </div>
+        <div onclick="hideTerminal()" class="close-button">
+            <img src="img/icons/x.png" alt="" style="width:15px;height:15px;position:relative;top:6px">
+        </div>
+            
         
         <div id="terminal-prompt">
             <div id="terminal-user">
@@ -54,11 +94,11 @@
         </div>
         
         <!-- HERE STARTS THE COMMANDS -->
-        <div id="terminal-prompt">
+        <div id="terminal-prompt" style="float:left;">
             <div id="terminal-user">
                 luisa@linux-is-fun:~$
             </div>
-            <span id="terminal__prompt--cursor"></span>
+            <span id="terminal__prompt--cursor" ></span>
             <!-- <input type="text" id="input"> -->
         
         </div>  
@@ -66,10 +106,12 @@
     
     <div id="user-main-screen">
         <div id="user-bar">
-            <img src="img/user.png" alt="" style="float:left;width:23px;height:22px;"> Profile
-            <img onclick="hideUser()" src="img/window_icons_white_close.png" alt="" style="cursor:default;float:right;width:25px;height:25px;">
-            <img src="img/window_icons_white.png" alt="" style="float:right;width:55px;height:25px;">
+            <img src="img/icons/waving.png" alt="" style="float:left;width:23px;height:22px;"> Profile
         </div>
+        <div onclick="hideUser()" class="close-button" style="top:-37px">
+            <img src="img/icons/x.png" alt="" style="width:15px;height:15px;position:relative;top:6px">
+        </div>
+
         <img id="user-image" src="img/luisa_git.gif" alt="" style="width:200px;height:200px;">
         <div id="text-box">
             My name is Luísa Amaral and I am a computer <br> engineering student in the University of Aveiro
@@ -81,10 +123,11 @@
 
 
     <div id="education-main-screen">
-        <div id="education-bar">         
-            <img src="img/diplom.png" alt="" style="float:left;width:23px;height:22px;"> Education
-            <img onclick="hideEducation()" src="img/window_icons_white_close.png" alt="" style="cursor:default;float:right;width:25px;height:25px;">
-            <img src="img/window_icons_white.png" alt="" style="float:right;width:55px;height:25px;">
+        <div id="education-bar">
+            <img src="img/icons/school.png" alt="" style="float:left;width:23px;height:22px;"> Education
+        </div>
+        <div onclick="hideEducation()" class="close-button" style="top:-36px">
+            <img src="img/icons/x.png" alt="" style="width:15px;height:15px;position:relative;top:6px">
         </div>
         
         <div id="text-box">
@@ -95,7 +138,7 @@
             <b style="color: black;">UNIVERSIDADE DE AVEIRO</b><br><br>
             Currently a third year student enrolled in the Computer Engineering course in the University of Aveiro.
             <br><br><br>
-            <a href="http://www.aems.edu.pt/" target="_blank"><img id="user-image" src="img/logo_aems_200px_bold.png" style="float:right;width:180px;height:56px;" alt="">
+            <a href="https://www.aemsacramento.edu.pt/" target="_blank"><img id="user-image" src="img/logo_aems_200px_bold.png" style="float:right;width:180px;height:56px;" alt="">
             </a>
             <h1 style="text-align: left;">2018</h1> 
             <h2 style="text-align: left;">Graduated High School</h2>
@@ -104,12 +147,11 @@
         </div>
     </div>
 
-    <div class="bottombar">
+    <div class="img__wrap" style="top: 90%;left: 96%;">
         <a href="https://github.com/LuisaTheAmaral" class="active">
-            <i class="fab fa-github"></i>
+            <img src="img/icons/gitv2.png" alt="" style="float:left;width:100px;height:100px;">
         </a>
-        <!-- <a href="#news">News</a>
-        <a href="#contact">Contact</a> -->
+        <p class="img__description">Check out my github!</p>
     </div>
 
     <script>
